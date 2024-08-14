@@ -1,0 +1,10 @@
+{
+  "property1": "value1",
+  "property2": "value2",
+  "property3": "value3",
+  "property4": {
+    "subProperty1": "subValue1",
+    "subProperty2": "subValue2"
+  },
+  "property5": [1, 2, 3, 4, 5]
+}
