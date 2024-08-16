@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>module run</title>
+  </head>
+  <body>
+    <script type="module">
+      // 3variablemodule.js
+      import { variable } from "./script/3variablemodule.js";
+      console.log(variable);
+
+      // 4class.js
+      import { ClassName } from "./script/4class.js";
+      const instance = new ClassName("value Class");
+      instance.methodName("value Method");
+
+      // 5multiple.js
+      import { multiple, sum, Company } from "./script/5multiple.js";
+      console.log(sum(1, 2));
+      const a = new Company();
+
+      //6alias.js
+      import {
+        Company as Perusahaan,
+        sum as total,
+        multiple as banyak,
+      } from "./script/6alias.js";
+      console.log(total(1, 2));
+      const b = new Perusahaan();
+    </script>
+  </body>
+</html>
