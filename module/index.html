@@ -29,6 +29,32 @@
       } from "./script/6alias.js";
       console.log(total(1, 2));
       const b = new Perusahaan();
+
+      //7default
+      //function
+      import iniDefault from "./script/7exportdefault.js";
+      iniDefault("ini export default function");
+
+      // import nameVariable from "./script/7exportdefault.js";
+      // console.log(nameVariable);
+
+      // import Kelas from "./script/7exportdefault.js";
+      // const kelas = new Kelas(parameter)
+
+      // untuk import default dan non default
+      // import default, { nonDefault1, nonDefault2 } from "./script/7exportdefault.js";
+
+      //8moduleobject.js
+      import * as moduleObject from "./script/8moduleobject.js";
+      console.log(moduleObject.variableName1);
+      console.log(moduleObject.variableName2);
+      console.log(moduleObject.variableName3);
+      moduleObject.moduleFunction();
+      let kelas = new moduleObject.ModuleKelas("module object class");
+      console.log(kelas);
+
+      // //9aggregatmodule.js
+      // import * as moduleAggregat from "./script/9aggregatmodule.js";
     </script>
   </body>
 </html>
