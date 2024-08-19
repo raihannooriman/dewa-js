@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Element</title>
+  </head>
+  <body>
+    <h1 id="Judul"></h1>
+    <p id="deskripsi"></p>
+    <div id="content" class="content">
+      <h1>DOM div</h1>
+      <p>Ini dom div</p>
+    </div>
+    <script>
+      const judul = document.getElementById("Judul");
+      judul.textContent = "Belajar DOM";
+      // output: <h1 id="Judul">Belajar DOM</h1>
+
+      const deskripsi = document.getElementById("deskripsi");
+      deskripsi.textContent = "Belajar DOM itu menyenangkan";
+      // output: <p id="deskripsi">Belajar DOM itu menyenangkan</p>
+
+      const content = document.getElementById("content");
+      console.log(content.id);
+      // output: content
+      console.log(content.className);
+      // output: content
+      console.log(content.tagName);
+      // output: DIV
+
+      const title = document.createElement("h2");
+      title.textContent = "Belajar DOM itu mudah";
+      content.appendChild(title);
+      // output: <h2>Belajar DOM itu mudah</h2>
+    </script>
+  </body>
+</html>

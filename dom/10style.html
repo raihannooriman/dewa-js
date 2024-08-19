@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style DOM</title>
+  </head>
+  <body>
+    <input type="button" value="blue" />
+    <input type="button" value="red" />
+    <input type="button" value="yellow" />
+    <div
+      id="canvas"
+      style="width: 500px; height: 500px; background-color: black"
+    ></div>
+    <script>
+      let canvas = document.getElementById("canvas");
+      let buttons = document.querySelectorAll("input");
+      for (let button of buttons) {
+        button.onclick = (event) => {
+          // untuk mengganti style background-color canvas
+          canvas.style.backgroundColor = event.target.value;
+        };
+      }
+    </script>
+  </body>
+</html>

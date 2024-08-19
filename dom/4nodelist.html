@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node List</title>
+  </head>
+  <body>
+    <ul id="menu1">
+      <li id="satu">satu</li>
+      <li id="dua">dua</li>
+      <li id="tiga">tiga</li>
+    </ul>
+    <ul id="menu2">
+      <li>one</li>
+      <li>two</li>
+      <li>three</li>
+    </ul>
+    <script>
+      const list = document.querySelectorAll("li");
+      console.log(list);
+
+      //live node list
+      // output: NodeList(6) [li#satu, li#dua, li#tiga, li, li, li]
+      const menu1 = document.getElementById("menu1");
+      console.log(menu1);
+      // output: <ul id="menu1">...</ul>
+      const addmenu1 = menu1.childNodes;
+      menu1.appendChild(document.createElement("li"));
+      menu1.appendChild(document.createElement("li"));
+      console.log(addmenu1);
+      // output: NodeList(7) [text, li#satu, text, li#dua, text, li#tiga, text]
+      const menu2 = document.getElementById("menu2").childNodes;
+      console.log(menu2);
+      // output: NodeList(7) [text, li, text, li, text, li, text]
+
+      // static node list untuk iterasi list
+      document.querySelectorAll("li").forEach((item) => {
+        console.log(item);
+      });
+    </script>
+  </body>
+</html>

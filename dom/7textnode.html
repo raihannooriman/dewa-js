@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Node</title>
+  </head>
+  <body>
+    Ini text node html tanpa tag
+    <script>
+      const text = document.body.firstChild;
+      console.log(text.wholeText);
+      // Output: Ini text node html tanpa tag
+      const text2 = document.createTextNode(", Ini text node baru");
+      document.body.appendChild(text2);
+    </script>
+  </body>
+</html>

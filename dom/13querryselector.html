@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Query Selector</title>
+  </head>
+  <body>
+    <h1 id="title">Judul</h1>
+    <ul>
+      <li>satu</li>
+      <li>dua</li>
+    </ul>
+    <ul>
+      <li class="menuItem">tiga</li>
+      <li>empat</li>
+      <li class="menuItem">lima</li>
+    </ul>
+    <a href="https://google.com">Google</a>
+    <script>
+      // universal selector
+      const elements = document.querySelectorAll("*");
+      console.log(elements);
+      // output: NodeList(10) [html, head, meta, meta, title, body, script, script, script, script]
+
+      // tag selector
+      const list = document.querySelectorAll("li");
+      console.log(list);
+      // output: NodeList(5) [li, li, li, li, li]
+
+      // class selector
+      const menuItems = document.querySelectorAll(".menuItem");
+      console.log(menuItems);
+      // output: NodeList(2) [li.menuItem, li.menuItem]
+
+      // id selector
+      const title = document.querySelectorAll("#title");
+      console.log(title);
+      // output: NodeList [h1#title]
+
+      // attribute selector
+      const href = document.querySelectorAll("[href]");
+      console.log(href);
+      // output: NodeList [a]
+    </script>
+  </body>
+</html>

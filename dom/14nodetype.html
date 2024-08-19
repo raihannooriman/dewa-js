@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node Type</title>
+  </head>
+  <body>
+    Text Node
+    <!-- komentar -->
+    <h1>Judul</h1>
+    <script>
+      let nodes = document.body.childNodes;
+      for (let node of nodes) {
+        console.log(`${node}: ${node.nodeType}`);
+      }
+      // 1: Element, 2: Attribute, 3: Text, 4: CDATASection, 5: EntityReference, 6: Entity, 7: ProcessingInstruction, 8: Comment, 9: Document, 10: DocumentType, 11: DocumentFragment, 12: Notation
+    </script>
+  </body>
+</html>

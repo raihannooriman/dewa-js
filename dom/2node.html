@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node</title>
+  </head>
+  <body>
+    <ul id="menu">
+      <li id="first">First</li>
+      <li id="second">Second</li>
+      <li id="third">Third</li>
+    </ul>
+    <script>
+      const menu = document.getElementById("menu");
+      console.log(menu);
+      // output: <ul id="menu">...</ul>
+      console.log(menu.childNodes);
+      // output: NodeList(7) [text, li#first, text, li#second, text, li#third, text]
+      const second = document.getElementById("second");
+      console.log(second);
+      // output: <li id="second">Second</li>
+      console.log(second.textContent);
+      // output: Second
+      console.log(second.previousSibling);
+      console.log(second.nextSibling);
+      // const third = document.getElementById("third");
+      // third.removeChild(document.getElementById("first"));
+    </script>
+  </body>
+</html>

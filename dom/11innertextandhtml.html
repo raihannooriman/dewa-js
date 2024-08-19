@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inner Text</title>
+  </head>
+  <body>
+    <p id="content">
+      <script>
+        console.log("Hello World");
+      </script>
+      <b>Bold</b> normal <i>Italic</i>
+    </p>
+    <script>
+      let content = document.getElementById("content");
+      console.log(content.textContent);
+      // textContent akan menampilkan semua teks yang ada di dalam elemen
+      console.log(content.innerText);
+      // innerText hanya akan menampilkan teks yang terlihat saja
+      console.log(content.innerHTML);
+      // innerHTML akan menampilkan semua teks dan elemen HTML yang ada di dalam elemen, bisa mengubah elemen HTML hanya dengan string
+    </script>
+    <div id="content2"></div>
+    <script>
+      let content2 = document.getElementById("content2");
+      // content2.innerText = "<b>Ini</b> inner <i>Text</i>";
+      content2.innerHTML = "<b>Ini</b> inner <i>HTMl</i>";
+      // comment salah 1
+    </script>
+  </body>
+</html>

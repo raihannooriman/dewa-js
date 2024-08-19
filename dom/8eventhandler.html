@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listener</title>
+  </head>
+  <body>
+    <button id="clickMe" type="button">Click Me Handler Target</button>
+    <button id="clickMeGlobal" type="button">Click Me Global</button>
+    <script>
+      // event target
+      const clickMe = document.getElementById("clickMe");
+      clickMe.addEventListener("click", () => {
+        clickMe.textContent = "Sudah di klik";
+      });
+      clickMe.addEventListener("click", () => {console.log("Button clicked Target")});
+
+      // event global
+      const clickMeGlobal = document.getElementById("clickMeGlobal");
+      clickMeGlobal.onclick = () => {
+        clickMeGlobal.textContent = "Sudah di klik";
+        console.log("Button clicked Global");
+      };
+    </script>
+</html>

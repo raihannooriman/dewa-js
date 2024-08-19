@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window</title>
+  </head>
+  <body>
+    <p id="content"></p>
+    <p id="location"></p>
+    <script>
+      let content = document.getElementById("content");
+      let locationtext = document.getElementById("location");
+
+      let height = window.screen.height;
+      let width = window.screen.width;
+      let url = window.location;
+
+      content.textContent = `Window width: ${width}, height: ${height}`;
+      locationtext.textContent = url;
+    </script>
+  </body>
+</html>

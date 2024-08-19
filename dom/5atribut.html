@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atribut</title>
+  </head>
+  <body>
+    <h1 id="judul" class="kelasJudul">Judul</h1>
+    <script>
+      const judul = document.getElementById("judul");
+      const kelas = judul.getAttributeNode("class");
+      // const kelas = judul.getAttribute("class");
+      console.log(kelas.name);
+      // output: class
+      console.log(kelas.value);
+      // output: kelasJudul
+      // console.log(kelas)
+
+      // menambah nilai atribut class
+      const style = document.createAttribute("style");
+      style.value = "color: red";
+      judul.setAttributeNode(style);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atribut</title>
+  </head>
+  <body>
+    <h1 id="judul" class="kelasJudul">Judul</h1>
+    <script>
+      const judul = document.getElementById("judul");
+      const kelas = judul.getAttributeNode("class");
+      console.log(kelas.name);
+      console.log(kelas.value);
+      const style = document.createAttribute("style");
+      style.value = "color: red";
+      judul.setAttributeNode(style);
+
+      // NamedNodeMap
+      const atribut = judul.attributes;
+      for (let attribute of atribut) {
+        console.log(`${attribute.name} : ${attribute.value}`);
+      }
+    </script>
+  </body>
+</html>
