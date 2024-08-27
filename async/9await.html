@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Await</title>
+  </head>
+  <body>
+    <script>
+      const getProduct = () => {
+        const request = new Request("api/product.json", {
+          method: "GET",
+        });
+        const response = fetch(request);
+        return response.then((res) => res.json());
+      };
+      const getProductName = async () => {
+        const product = await getProduct();
+        return product.name;
+      };
+
+      getProductName().then((name) => console.log(name));
+    </script>
+  </body>
+</html>

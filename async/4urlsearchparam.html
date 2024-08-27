@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send AJAX</title>
+  </head>
+  <body>
+    <form>
+      <label for="search">
+        search:
+        <input type="text" id="search" name="search" />
+      </label>
+      <button type="button" id="search">Search</button>
+    </form>
+    <h1 id="response"></h1>
+    <script>
+      const doSearch = () => {
+        const ajax = new XMLHttpRequest();
+        const param = new URLSearchParams();
+        param.append("search", document.getElementById("search").value);
+        param.append("filter", document.getElementById("search").value);
+        ajax.open(
+          "GET",
+          `https://en6mbagrqoehu.x.pipedream.net?${param.toString()}`
+        );
+        ajax.onload = () => {
+          const response = document.getElementById("response");
+          response.innerText = ajax.responseText;
+        };
+        ajax.send();
+      };
+      document.getElementById("search").onclick = doSearch;
+    </script>
+  </body>
+</html>

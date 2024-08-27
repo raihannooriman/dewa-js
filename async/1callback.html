@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback</title>
+  </head>
+  <body>
+    <p id="interval"></p>
+    <script>
+      let addElement = () => {
+        const header = document.createElement("h1");
+        header.textContent = "Ini Callback 5 detik";
+        document.body.appendChild(header);
+      };
+      setTimeout(addElement, 5000); // untuk menunggu 5 detik
+      let setTime = () => {
+        const p = document.getElementById("interval");
+        p.textContent = new Date().toString();
+      };
+      setInterval(setTime, 1000); // setiap detik di run
+      alert("Tunggu 5 detik");
+    </script>
+  </body>
+</html>

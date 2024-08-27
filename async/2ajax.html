@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX</title>
+  </head>
+  <body>
+    <h1 id="response"></h1>
+    <script>
+      const displayResponse = (json) => {
+        const header = document.getElementById("response");
+        header.textContent = json.response;
+      };
+      const ajax = new XMLHttpRequest();
+      ajax.onreadystatechange = () => {
+        console.log(`Ready State Change ${ajax.readyState}`);
+      };
+      ajax.open("GET", "http://127.0.0.1:5500/async/api/hello.json");
+      // ajax.addEventListener("load", () => {  versi addEventListener, digunakan saat ada lebih dari satu event yang akan dihandle
+      //   ajax.status === 200
+      //     ? displayResponse(JSON.parse(ajax.responseText))
+      //     : displayResponse({ response: "Error" });
+      // });
+      ajax.onload = () => {
+        // versi onload, digunakan saat hanya ada satu event yang akan dihandle
+        ajax.status === 200
+          ? displayResponse(JSON.parse(ajax.responseText))
+          : displayResponse({ response: "Error" });
+      };
+      ajax.send();
+    </script>
+  </body>
+</html>

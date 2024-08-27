@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send AJAX</title>
+  </head>
+  <body>
+    <form>
+      <label for="username">
+        Username:
+        <input type="text" id="username" name="username" />
+      </label>
+      <br />
+      <label for="file">
+        File:
+        <input type="file" id="file" name="file" />
+      </label>
+      <br />
+      <button type="button" id="submit">submit</button>
+    </form>
+    <h1 id="response"></h1>
+    <script>
+      const doLogin = () => {
+        const ajax = new XMLHttpRequest();
+        ajax.open("POST", "https://en6mbagrqoehu.x.pipedream.net");
+        ajax.onload = () => {
+          const response = document.getElementById("response");
+          response.innerText = ajax.responseText;
+        };
+
+        const form = new FormData();
+        form.append("username", document.getElementById("username").value);
+        const files = document.getElementById("file").files;
+        const firstFile = files.item(0);
+        form.append("file", firstFile);
+        ajax.send(form);
+      };
+      document.getElementById("submit").onclick = doLogin;
+    </script>
+  </body>
+</html>
