@@ -15,10 +15,15 @@
         return response.then((res) => res.json());
       };
       const getProductName = async () => {
-        const product = await getProduct();
-        return product.name;
+        try {
+          const product = await getProduct();
+          return product.name;
+        } catch (e) {
+          return "not found";
+        } finally {
+          console.log("berhasil jalan");
+        }
       };
-
       getProductName().then((name) => console.log(name));
     </script>
   </body>
