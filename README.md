@@ -1,1 +1,8 @@
-Belajar Javascript Dasar-OOP-Standart Library-Module-DOM-Async
+Belajar
+Javascript Dasar
+Object Oriented Programming
+Standart Library
+Module
+Document Object Modern
+Asynchronous
+NodeJS

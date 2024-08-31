@@ -1,0 +1,9 @@
+Hello world
+Error occurred
+Warning
+┌─────────┬──────────┐
+│ (index) │  Values  │
+├─────────┼──────────┤
+│  first  │ 'First'  │
+│ second  │ 'Second' │
+└─────────┴──────────┘
