@@ -1,0 +1,23 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "belajar nodejs npm",
+  "exports": {
+    ".": "./index.js",
+    "./write": "./write.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raihannooriman/dewa-js.git"
+  },
+  "scripts": {
+    "run": "node index.js",
+    "prestart": "echo 'Before Application Start'",
+    "start": "node index.js",
+    "poststart": "echo 'After Application Start'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raihan Nooriman",
+  "license": "ISC",
+  "type": "module"
+}
