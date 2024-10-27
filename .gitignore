@@ -1,2 +1,4 @@
 /nodejs/unit-test/node_modules
 /nodejs/unit-test/coverage
+/nodejs/logging/node_modules
+/nodejs/logging/coverage
