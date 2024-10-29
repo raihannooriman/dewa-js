@@ -2,3 +2,4 @@
 /nodejs/unit-test/coverage
 /nodejs/logging/node_modules
 /nodejs/logging/coverage
+/nodejs/expressjs/node_modules
