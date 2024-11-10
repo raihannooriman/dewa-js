@@ -3,3 +3,5 @@
 /nodejs/logging/node_modules
 /nodejs/logging/coverage
 /nodejs/expressjs/node_modules
+/nodejs/mustache/node_modules
+/nodejs/mustache/coverage
