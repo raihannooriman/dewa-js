@@ -1,5 +1,7 @@
 import Mustache from "mustache";
 import fs from "fs/promises";
+import mustache from "mustache";
+import { name } from "mustache";
 
 test("Menggunakan Mustache", () => {
   const data = Mustache.render("Hello, {{name}}", { name: "Han" });
@@ -78,4 +80,59 @@ test("List", async () => {
   expect(data).toContain("Programming");
   expect(data).toContain("Gaming");
   expect(data).toContain("Reading");
+})
+
+test("List Object", async () => {
+  const helloTempelate = await fs.readFile("./tempelates/students.mustache").then(data => data.toString());
+  const data = Mustache.render(helloTempelate, {
+    students: [
+      { name: "Han", value: 100 },
+      { name: "Hana", value: 90 },
+    ]
+  });
+  console.log(data);
+  expect(data).toContain("Han");
+  expect(data).toContain("Hana");
+  expect(data).toContain("100");
+  expect(data).toContain("90");
+})
+
+test("Functions", async () => {
+  const parameter = {
+    name: "Han",
+    upper: () => {
+      return (text, render) => {
+        return render(text).toUpperCase();
+      }
+    }
+  }
+  const data = Mustache.render("Hello, {{#upper}}{{name}}{{/upper}}", parameter);
+  console.log(data);
+})
+
+test("Comment", async () => {
+  const helloTempelate = await fs.readFile("./tempelates/comment.mustache").then(data => data.toString());
+  const data = Mustache.render(helloTempelate, {
+    title: "Han"
+  });
+  console.log(data);
+  expect(data).toContain("Han")
+  expect(data).not.toContain("Ini Komentar")
+})
+
+test("Partials", async () => {
+  const contentTempelate = await fs.readFile("./tempelates/content.mustache").then(data => data.toString());
+  const headerTempelate = await fs.readFile("./tempelates/header.mustache").then(data => data.toString());
+  const footerTempelate = await fs.readFile("./tempelates/footer.mustache").then(data => data.toString());
+  const data = Mustache.render(contentTempelate, {
+    title: "Han",
+    content: "Learn Mustache"
+  }, {
+    header: headerTempelate,
+    footer: footerTempelate
+  });
+  console.log(data);
+  expect(data).toContain("Han")
+  expect(data).toContain("Learn Mustache")
+  expect(data).toContain("Powered by Han")
 })
