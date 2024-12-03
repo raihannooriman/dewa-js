@@ -44,3 +44,9 @@ INSERT INTO products (id, name, price, stock, category)
   ('P0008', 'C', 3000, 300, 'K2'), 
   ('P0009', 'D', 4000, 400, 'K2'),
   ('P0010', 'E', 5000, 500, 'K2')
+
+-- buatkan saya table categories dengan id primary key integer not null auto increment dan name varchar(100) not null
+CREATE TABLE categories(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL
+)
