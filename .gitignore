@@ -6,3 +6,4 @@
 /nodejs/mustache/node_modules
 /nodejs/mustache/coverage
 /nodejs/database/node_modules
+/nodejs/database/.env

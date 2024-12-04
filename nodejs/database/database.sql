@@ -45,8 +45,60 @@ INSERT INTO products (id, name, price, stock, category)
   ('P0009', 'D', 4000, 400, 'K2'),
   ('P0010', 'E', 5000, 500, 'K2')
 
--- buatkan saya table categories dengan id primary key integer not null auto increment dan name varchar(100) not null
 CREATE TABLE categories(
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL
 )
+
+CREATE TABLE wallet(
+  id VARCHAR(100) NOT NULL,
+  balance INTEGER NOT NULL,
+  customer_id VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT wallet_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customers(id),
+  CONSTRAINT wallet_customer_id_unique UNIQUE (customer_id)
+)
+
+CREATE TABLE comments(
+  id SERIAL INTEGER NOT NULL,
+  customer_id VARCHAR(100) NOT NULL,
+  title VARCHAR(100) NOT NULL,
+  description TEXT NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT comments_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customers(id)
+)
+
+SELECT * FROM comments;
+
+
+INSERT INTO comments(customer_id, title, description)
+VALUES('han', 'Comment 1', 'Description 1'),
+('han', 'Comment 2', 'Description 2'),
+('joko', 'Comment 1', 'Description 1'),
+('joko', 'Comment 2', 'Description 2')
+
+CREATE TABLE likes(
+  customer_id VARCHAR(100) NOT NULL,
+  product_id VARCHAR(100) NOT NULL,
+  PRIMARY KEY (customer_id, product_id),
+  CONSTRAINT likes_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customers(id),
+  CONSTRAINT likes_product_id_fk FOREIGN KEY (product_id) REFERENCES products(id)
+)
+
+SELECT * FROM likes;
+
+
+-- implicit relation many to many
+CREATE TABLE _loves(
+  A VARCHAR(100) NOT NULL,
+  B VARCHAR(100) NOT NULL,
+  PRIMARY KEY (A, B),
+  CONSTRAINT customer_loves_fk FOREIGN KEY (A) REFERENCES customers(id),
+  CONSTRAINT product_loves_fk FOREIGN KEY (B) REFERENCES products(id)
+)
+
+
+
+-- migrate
+
+CREATE DATABASE belajar_nodejs_prisma;
