@@ -7,3 +7,5 @@
 /nodejs/mustache/coverage
 /nodejs/database/node_modules
 /nodejs/database/.env
+/nodejs/validation/node_modules
+/nodejs/redis/node_modules
