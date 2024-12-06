@@ -9,3 +9,5 @@
 /nodejs/database/.env
 /nodejs/validation/node_modules
 /nodejs/redis/node_modules
+/nodejs/axios/node_modules
+/nodejs/eslint/node_modules

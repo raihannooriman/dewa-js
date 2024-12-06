@@ -124,4 +124,51 @@ describe("nodejs redis", () => {
     expect(await redis.get("name")).toBe("Han");
     expect(await redis.get("address")).toBe("Jakarta");
   })
+
+  // support transaction
+  it("should support transaction", async () => {
+    const transaction = redis.multi();
+    transaction.setex("name", 2, "Han");
+    transaction.setex("address", 2, "Jakarta");
+    await transaction.exec();
+    expect(await redis.get("name")).toBe("Han");
+    expect(await redis.get("address")).toBe("Jakarta");
+  })
+
+  // support stream
+  // it("should support stream", async () => {
+  //   for (let i = 0; i < 10; i++){
+  //     await redis.xadd("members","*","name", `Han ${i}`, "address", "Jakarta")
+  //   }
+  // })
+  // it("should support consumer group stream", async () => {
+  //   await redis.xgroup("CREATE", "members", "group-1", "0")
+  //   await redis.xgroup("CREATECONSUMER", "members", "group-1", "consumer-1")
+  //   await redis.xgroup("CREATECONSUMER", "members", "group-1", "consumer-2")
+  // })
+  // it("should can consume stream", async () => {
+  //   const result = await redis.xreadgroup("GROUP", "group-1", "consumer-1", "COUNT", 2, "BLOCK", 3000, "STREAMS", "members", ">")
+  //   expect(result).not.toBeNull()
+  //   console.log(JSON.stringify(result, null, 2))
+  // })
+
+  // support pub/sub
+
+  // jalankan test ini terlebih dahulu
+
+  // it("should can subscribe to pubsub", async () => {
+  //   redis.subscribe("channel-1")
+  //   redis.on("message", (channel, message) => {
+  //     console.log(`Receive message from ${channel} with message ${message}`)
+  //   })
+  //   // wait 60 detik
+  //   await new Promise(resolve => setTimeout(resolve, 60000))
+  // }, 60000)
+
+  // jalankan test ini setelah test diatas dijalankan
+  it("should can publish to pubsub", async () => {
+    for (let i = 0; i < 10; i++){
+      redis.publish("channel-1", `Hello world ${i}`)
+    }
+  })
 })
