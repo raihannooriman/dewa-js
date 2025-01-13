@@ -3,11 +3,16 @@ const person = {
     country: "USA",
   },
 };
-let state = person?.address?.country;
+// akses benar
+let state = person.address.country;
 console.log(state); // USA
+// akses salah tanpa operator chaining (?.)
+let state2 = person.phone.home;
+console.log(state2); // Error: Cannot read property 'home' of undefined
+// akses salah dengan operator chaining (?.)
+let state3 = person.phone?.home;
+console.log(state3); // undefined
 //penjelasan:
-//operator chaining (?.) digunakan untuk memeriksa apakah properti dari objek yang diakses ada atau tidak.
-//Jika properti yang diakses tidak ada, maka hasilnya adalah undefined.
-//Dalam contoh di atas, properti address dan country ada, sehingga state akan berisi "USA".
-//Jika properti address tidak ada, maka state akan berisi undefined.
-// jika tanpa operator chaining (?.) maka akan terjadi error. karena properti address tidak ada
+// operator chaining (?.) digunakan untuk mengakses properti dari sebuah object secara aman
+// jika properti yang diakses tidak ditemukan, maka hasilnya akan undefined dan tidak akan menimbulkan error seperti contoh state2
+
