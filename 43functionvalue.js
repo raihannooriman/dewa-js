@@ -12,3 +12,12 @@ function giveMeName(callback) {
 }
 giveMeName(say);
 // Output: John
+
+function namaFunction(callback) {
+  callback("value");
+}
+
+namaFunction(function (value) {
+  console.log(value);
+});
+// Output: value
