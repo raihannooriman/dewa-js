@@ -83,10 +83,10 @@ printHobbies(hobbies);
 
 //destructuring default value untuk array tidak ada data
 const data = ["data1", "data2"];
-const [data1, data2, data3 = "datadefault"] = data;
-console.log(data1);
-console.log(data2);
-console.log(data3);
+const [x, y, z = "datadefault"] = data;
+console.log(x);
+console.log(y);
+console.log(z);
 // output: data1, data2, datadefault
 
 //destructuring default value untuk object tidak ada data
